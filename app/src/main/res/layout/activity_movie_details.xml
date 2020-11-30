@@ -14,7 +14,7 @@
         <ImageView
             android:id="@+id/poster"
             android:layout_width="wrap_content"
-            android:layout_height="298dp"
+            android:layout_height="@dimen/movie_details_a_poster_height"
             android:contentDescription="@string/movie_details_a_poster_image_content_description"
             android:scaleType="centerCrop"
             android:src="@drawable/movie_poster"
@@ -32,16 +32,10 @@
             app:layout_constraintTop_toTopOf="@id/poster"
             tools:visibility="visible" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/top_menu_guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_begin="44dp" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/movie_details_a_top_menu_layout_margin_top"
             android:drawablePadding="@dimen/padding_0_5x"
             android:fontFamily="sans-serif-light"
             android:gravity="center"
@@ -52,21 +46,39 @@
             android:textSize="@dimen/top_menu_text_size"
             app:drawableStartCompat="@drawable/ic_back"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/top_menu_guideline" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.Barrier
-            android:id="@+id/barrier_bottom_poster"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:barrierDirection="bottom"
-            app:constraint_referenced_ids="poster" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/pg_card_view"
+            android:layout_width="@dimen/movie_details_a_pg_size"
+            android:layout_height="@dimen/movie_details_a_pg_size"
+            android:layout_marginStart="@dimen/margin_2x"
+            android:layout_marginTop="@dimen/movie_details_a_pg_margin_top"
+            app:cardBackgroundColor="@color/background"
+            app:cardCornerRadius="@dimen/movie_details_a_pg_corner_radius"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/pg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@color/background"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:text="@string/movie_details_a_pg"
+                android:textColor="@color/movie_details_a_pg_text_color"
+                android:textSize="@dimen/movie_details_a_pg_text_size" />
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/name"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-black"
             android:gravity="start"
+            android:lineHeight="@dimen/movie_details_a_name_line_height"
             android:paddingStart="@dimen/padding_2x"
             android:paddingEnd="@dimen/padding_2x"
             android:shadowColor="@color/movie_details_a_name_shadow_color"
@@ -76,22 +88,11 @@
             android:text="@string/movie_details_a_name"
             android:textColor="@color/movie_details_a_name_text_color"
             android:textSize="@dimen/movie_details_a_name_text_size"
-            app:layout_constraintBaseline_toBaselineOf="@id/barrier_bottom_poster"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pg_card_view"
+            tools:ignore="UnusedAttribute" />
 
-        <TextView
-            android:id="@+id/pg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_2x"
-            android:background="@color/background"
-            android:fontFamily="sans-serif-black"
-            android:gravity="start"
-            android:text="@string/movie_details_a_pg"
-            android:textColor="@color/movie_details_a_pg_text_color"
-            android:textSize="@dimen/movie_details_a_pg_text_size"
-            app:layout_constraintBottom_toTopOf="@id/name"
-            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/tags"
@@ -190,19 +191,13 @@
             app:layout_constraintStart_toEndOf="@id/star_icon_5"
             app:layout_constraintTop_toBottomOf="@id/tags" />
 
-        <androidx.constraintlayout.widget.Barrier
-            android:id="@+id/barrier_bottom_reviews"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:barrierDirection="bottom"
-            app:constraint_referenced_ids="star_icon_1, star_icon_2, star_icon_3, star_icon_4, star_icon_5, reviews" />
-
         <TextView
             android:id="@+id/storyline_header"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_2x"
             android:layout_marginTop="@dimen/margin_3x"
+            android:layout_marginEnd="@dimen/margin_2x"
             android:fontFamily="sans-serif-black"
             android:gravity="start"
             android:shadowColor="@color/movie_details_a_storyline_header_shadow_color"
@@ -213,17 +208,18 @@
             android:textColor="@color/movie_details_a_storyline_header_text_color"
             android:textSize="@dimen/movie_details_a_storyline_header_text_size"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/barrier_bottom_reviews" />
+            app:layout_constraintTop_toBottomOf="@id/reviews" />
 
         <TextView
             android:id="@+id/storyline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_2x"
-            android:layout_marginTop="@dimen/margin_1x"
+            android:layout_marginTop="@dimen/margin_2x"
             android:layout_marginEnd="@dimen/margin_2x"
             android:fontFamily="sans-serif-light"
             android:gravity="start"
+            android:lineSpacingExtra="@dimen/movie_details_a_storyline_line_spacing_extra"
             android:text="@string/movie_details_a_storyline"
             android:textColor="@color/movie_details_a_storyline_text_color"
             android:textSize="@dimen/movie_details_a_storyline_text_size"
@@ -255,8 +251,11 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="@dimen/margin_2x"
+            android:layout_marginTop="@dimen/margin_1x"
             android:layout_marginEnd="@dimen/margin_0_5x"
+            app:cardBackgroundColor="@color/background"
             app:cardCornerRadius="@dimen/movie_details_a_cast_corner_radius"
+            app:layout_constraintBottom_toTopOf="@+id/cast_1_name"
             app:layout_constraintDimensionRatio="H,1:1"
             app:layout_constraintEnd_toStartOf="@id/cast_2"
             app:layout_constraintStart_toStartOf="parent"
@@ -289,8 +288,11 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="@dimen/margin_0_5x"
+            android:layout_marginTop="@dimen/margin_1x"
             android:layout_marginEnd="@dimen/margin_0_5x"
+            app:cardBackgroundColor="@color/background"
             app:cardCornerRadius="@dimen/movie_details_a_cast_corner_radius"
+            app:layout_constraintBottom_toTopOf="@+id/cast_2_name"
             app:layout_constraintDimensionRatio="H,1:1"
             app:layout_constraintEnd_toStartOf="@id/cast_3"
             app:layout_constraintStart_toEndOf="@id/cast_1"
@@ -323,8 +325,11 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="@dimen/margin_0_5x"
+            android:layout_marginTop="@dimen/margin_1x"
             android:layout_marginEnd="@dimen/margin_0_5x"
+            app:cardBackgroundColor="@color/background"
             app:cardCornerRadius="@dimen/movie_details_a_cast_corner_radius"
+            app:layout_constraintBottom_toTopOf="@+id/cast_3_name"
             app:layout_constraintDimensionRatio="H,1:1"
             app:layout_constraintEnd_toStartOf="@id/cast_4"
             app:layout_constraintStart_toEndOf="@id/cast_2"
@@ -361,8 +366,11 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="@dimen/margin_0_5x"
+            android:layout_marginTop="@dimen/margin_1x"
             android:layout_marginEnd="@dimen/margin_2x"
+            app:cardBackgroundColor="@color/background"
             app:cardCornerRadius="@dimen/movie_details_a_cast_corner_radius"
+            app:layout_constraintBottom_toTopOf="@+id/cast_4_name"
             app:layout_constraintDimensionRatio="H,1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/cast_3"
