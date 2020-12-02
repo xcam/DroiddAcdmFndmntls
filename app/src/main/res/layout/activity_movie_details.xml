@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".moviedetails.MovieDetailsActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/poster"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/movie_details_a_poster_height"
+            android:contentDescription="@string/movie_details_a_poster_image_content_description"
+            android:scaleType="centerCrop"
+            android:src="@drawable/movie_poster"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/linear_gradient_to_background"
+            app:layout_constraintBottom_toBottomOf="@id/poster"
+            app:layout_constraintEnd_toEndOf="@id/poster"
+            app:layout_constraintStart_toStartOf="@id/poster"
+            app:layout_constraintTop_toTopOf="@id/poster"
+            tools:visibility="visible" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/movie_details_a_top_menu_layout_margin_top"
+            android:drawablePadding="@dimen/padding_0_5x"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:paddingStart="@dimen/padding_2x"
+            android:paddingEnd="@dimen/padding_2x"
+            android:text="@string/movie_details_a_top_menu_back"
+            android:textColor="@color/top_menu_text_color"
+            android:textSize="@dimen/top_menu_text_size"
+            app:drawableStartCompat="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/pg_card_view"
+            android:layout_width="@dimen/movie_details_a_pg_size"
+            android:layout_height="@dimen/movie_details_a_pg_size"
+            android:layout_marginStart="@dimen/margin_2x"
+            android:layout_marginTop="@dimen/movie_details_a_pg_margin_top"
+            app:cardBackgroundColor="@color/background"
+            app:cardCornerRadius="@dimen/movie_details_a_pg_corner_radius"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/pg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@color/background"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:text="@string/movie_details_a_pg"
+                android:textColor="@color/movie_details_a_pg_text_color"
+                android:textSize="@dimen/movie_details_a_pg_text_size" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:gravity="start"
+            android:lineHeight="@dimen/movie_details_a_name_line_height"
+            android:paddingStart="@dimen/padding_2x"
+            android:paddingEnd="@dimen/padding_2x"
+            android:shadowColor="@color/movie_details_a_name_shadow_color"
+            android:shadowDx="0"
+            android:shadowDy="6"
+            android:shadowRadius="12"
+            android:text="@string/movie_details_a_name"
+            android:textColor="@color/movie_details_a_name_text_color"
+            android:textSize="@dimen/movie_details_a_name_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pg_card_view"
+            tools:ignore="UnusedAttribute" />
+
+
+        <TextView
+            android:id="@+id/tags"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_2x"
+            android:fontFamily="sans-serif-light"
+            android:gravity="start"
+            android:text="@string/movie_details_a_tags"
+            android:textColor="@color/movie_details_a_tags_text_color"
+            android:textSize="@dimen/movie_details_a_tags_text_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/name" />
+
+        <ImageView
+            android:id="@+id/star_icon_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_2x"
+            android:contentDescription="@string/movie_details_a_review_image_content_description"
+            android:scaleType="center"
+            android:src="@drawable/ic_star_icon"
+            app:layout_constraintBottom_toBottomOf="@id/reviews"
+            app:layout_constraintEnd_toStartOf="@+id/star_icon_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/reviews"
+            app:tint="@color/movie_details_a_star_icon_set_tint_color" />
+
+        <ImageView
+            android:id="@+id/star_icon_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_0_5x"
+            android:contentDescription="@string/movie_details_a_review_image_content_description"
+            android:scaleType="center"
+            android:src="@drawable/ic_star_icon"
+            app:layout_constraintBottom_toBottomOf="@id/reviews"
+            app:layout_constraintEnd_toStartOf="@+id/star_icon_3"
+            app:layout_constraintStart_toEndOf="@id/star_icon_1"
+            app:layout_constraintTop_toTopOf="@id/reviews"
+            app:tint="@color/movie_details_a_star_icon_set_tint_color" />
+
+        <ImageView
+            android:id="@+id/star_icon_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_0_5x"
+            android:contentDescription="@string/movie_details_a_review_image_content_description"
+            android:scaleType="center"
+            android:src="@drawable/ic_star_icon"
+            app:layout_constraintBottom_toBottomOf="@id/reviews"
+            app:layout_constraintEnd_toStartOf="@+id/star_icon_4"
+            app:layout_constraintStart_toEndOf="@id/star_icon_2"
+            app:layout_constraintTop_toTopOf="@id/reviews"
+            app:tint="@color/movie_details_a_star_icon_set_tint_color" />
+
+        <ImageView
+            android:id="@+id/star_icon_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_0_5x"
+            android:contentDescription="@string/movie_details_a_review_image_content_description"
+            android:scaleType="center"
+            android:src="@drawable/ic_star_icon"
+            app:layout_constraintBottom_toBottomOf="@id/reviews"
+            app:layout_constraintEnd_toStartOf="@+id/star_icon_5"
+            app:layout_constraintStart_toEndOf="@id/star_icon_3"
+            app:layout_constraintTop_toTopOf="@id/reviews"
+            app:tint="@color/movie_details_a_star_icon_set_tint_color" />
+
+        <ImageView
+            android:id="@+id/star_icon_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_0_5x"
+            android:contentDescription="@string/movie_details_a_review_image_content_description"
+            android:scaleType="center"
+            android:src="@drawable/ic_star_icon"
+            app:layout_constraintBottom_toBottomOf="@id/reviews"
+            app:layout_constraintEnd_toStartOf="@+id/reviews"
+            app:layout_constraintStart_toEndOf="@id/star_icon_4"
+            app:layout_constraintTop_toTopOf="@id/reviews" />
+
+        <TextView
+            android:id="@+id/reviews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_1x"
+            android:layout_marginTop="@dimen/margin_0_5x"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center_vertical"
+            android:text="@string/movie_details_a_reviews"
+            android:textAllCaps="true"
+            android:textColor="@color/movie_details_a_reviews_text_color"
+            android:textSize="@dimen/movie_details_a_reviews_text_size"
+            app:layout_constraintStart_toEndOf="@id/star_icon_5"
+            app:layout_constraintTop_toBottomOf="@id/tags" />
+
+        <TextView
+            android:id="@+id/storyline_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_2x"
+            android:layout_marginTop="@dimen/margin_3x"
+            android:layout_marginEnd="@dimen/margin_2x"
+            android:fontFamily="sans-serif-black"
+            android:gravity="start"
+            android:shadowColor="@color/movie_details_a_storyline_header_shadow_color"
+            android:shadowDx="0"
+            android:shadowDy="6"
+            android:shadowRadius="12"
+            android:text="@string/movie_details_a_storyline_header"
+            android:textColor="@color/movie_details_a_storyline_header_text_color"
+            android:textSize="@dimen/movie_details_a_storyline_header_text_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/reviews" />
+
+        <TextView
+            android:id="@+id/storyline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_2x"
+            android:layout_marginTop="@dimen/margin_2x"
+            android:layout_marginEnd="@dimen/margin_2x"
+            android:fontFamily="sans-serif-light"
+            android:gravity="start"
+            android:lineSpacingExtra="@dimen/movie_details_a_storyline_line_spacing_extra"
+            android:text="@string/movie_details_a_storyline"
+            android:textColor="@color/movie_details_a_storyline_text_color"
+            android:textSize="@dimen/movie_details_a_storyline_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/storyline_header" />
+
+        <TextView
+            android:id="@+id/cast_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_4x"
+            android:fontFamily="sans-serif-black"
+            android:gravity="start"
+            android:paddingStart="@dimen/padding_2x"
+            android:paddingEnd="@dimen/padding_2x"
+            android:shadowColor="@color/movie_details_a_cast_header_shadow_color"
+            android:shadowDx="0"
+            android:shadowDy="6"
+            android:shadowRadius="12"
+            android:text="@string/movie_details_a_cast_header"
+            android:textColor="@color/movie_details_a_cast_header_text_color"
+            android:textSize="@dimen/movie_details_a_cast_header_text_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/storyline" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cast_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_2x"
+            android:layout_marginTop="@dimen/margin_1x"
+            android:layout_marginEnd="@dimen/margin_0_5x"
+            app:cardBackgroundColor="@color/background"
+            app:cardCornerRadius="@dimen/movie_details_a_cast_corner_radius"
+            app:layout_constraintBottom_toTopOf="@+id/cast_1_name"
+            app:layout_constraintDimensionRatio="H,1:1"
+            app:layout_constraintEnd_toStartOf="@id/cast_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cast_header">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/movie_details_a_review_image_content_description"
+                android:scaleType="centerCrop"
+                android:src="@drawable/cast_1" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/cast_1_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_1x"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center_vertical"
+            android:text="@string/movie_details_a_cast_1_name"
+            android:textColor="@color/movie_details_a_cast_name_text_color"
+            android:textSize="@dimen/movie_details_a_cast_name_text_size"
+            app:layout_constraintEnd_toEndOf="@id/cast_1"
+            app:layout_constraintStart_toStartOf="@id/cast_1"
+            app:layout_constraintTop_toBottomOf="@id/cast_1" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cast_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_0_5x"
+            android:layout_marginTop="@dimen/margin_1x"
+            android:layout_marginEnd="@dimen/margin_0_5x"
+            app:cardBackgroundColor="@color/background"
+            app:cardCornerRadius="@dimen/movie_details_a_cast_corner_radius"
+            app:layout_constraintBottom_toTopOf="@+id/cast_2_name"
+            app:layout_constraintDimensionRatio="H,1:1"
+            app:layout_constraintEnd_toStartOf="@id/cast_3"
+            app:layout_constraintStart_toEndOf="@id/cast_1"
+            app:layout_constraintTop_toBottomOf="@id/cast_header">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/movie_details_a_review_image_content_description"
+                android:scaleType="centerCrop"
+                android:src="@drawable/cast_2" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/cast_2_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_1x"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center_vertical"
+            android:text="@string/movie_details_a_cast_2_name"
+            android:textColor="@color/movie_details_a_cast_name_text_color"
+            android:textSize="@dimen/movie_details_a_cast_name_text_size"
+            app:layout_constraintEnd_toEndOf="@id/cast_2"
+            app:layout_constraintStart_toStartOf="@id/cast_2"
+            app:layout_constraintTop_toBottomOf="@id/cast_2" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cast_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_0_5x"
+            android:layout_marginTop="@dimen/margin_1x"
+            android:layout_marginEnd="@dimen/margin_0_5x"
+            app:cardBackgroundColor="@color/background"
+            app:cardCornerRadius="@dimen/movie_details_a_cast_corner_radius"
+            app:layout_constraintBottom_toTopOf="@+id/cast_3_name"
+            app:layout_constraintDimensionRatio="H,1:1"
+            app:layout_constraintEnd_toStartOf="@id/cast_4"
+            app:layout_constraintStart_toEndOf="@id/cast_2"
+            app:layout_constraintTop_toBottomOf="@id/cast_header">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/movie_details_a_review_image_content_description"
+                android:scaleType="centerCrop"
+                android:src="@drawable/cast_3" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/cast_3_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_1x"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center_vertical"
+            android:shadowColor="@color/movie_details_a_cast_3_shadow_color"
+            android:shadowDx="0"
+            android:shadowDy="4"
+            android:shadowRadius="4"
+            android:text="@string/movie_details_a_cast_3_name"
+            android:textColor="@color/movie_details_a_cast_name_text_color"
+            android:textSize="@dimen/movie_details_a_cast_name_text_size"
+            app:layout_constraintEnd_toEndOf="@id/cast_3"
+            app:layout_constraintStart_toStartOf="@id/cast_3"
+            app:layout_constraintTop_toBottomOf="@id/cast_3" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cast_4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_0_5x"
+            android:layout_marginTop="@dimen/margin_1x"
+            android:layout_marginEnd="@dimen/margin_2x"
+            app:cardBackgroundColor="@color/background"
+            app:cardCornerRadius="@dimen/movie_details_a_cast_corner_radius"
+            app:layout_constraintBottom_toTopOf="@+id/cast_4_name"
+            app:layout_constraintDimensionRatio="H,1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/cast_3"
+            app:layout_constraintTop_toBottomOf="@id/cast_header">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/movie_details_a_review_image_content_description"
+                android:scaleType="centerCrop"
+                android:src="@drawable/cast_4" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/cast_4_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_1x"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center_vertical"
+            android:text="@string/movie_details_a_cast_4_name"
+            android:textColor="@color/movie_details_a_cast_name_text_color"
+            android:textSize="@dimen/movie_details_a_cast_name_text_size"
+            app:layout_constraintEnd_toEndOf="@id/cast_4"
+            app:layout_constraintStart_toStartOf="@id/cast_4"
+            app:layout_constraintTop_toBottomOf="@id/cast_4" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

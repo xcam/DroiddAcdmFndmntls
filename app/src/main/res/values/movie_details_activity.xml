@@ -1,0 +1,58 @@
+<resources>
+    <string name="title_activity_movie_details">MovieDetailsActivity</string>
+    <string name="movie_details_a_poster_image_content_description">poster</string>
+    <dimen name="movie_details_a_poster_height">298dp</dimen>
+
+    <string name="movie_details_a_top_menu_back">Back</string>
+    <dimen name="movie_details_a_top_menu_layout_margin_top">54dp</dimen>
+
+    <string name="movie_details_a_pg">13+</string>
+    <dimen name="movie_details_a_pg_text_size">12sp</dimen>
+    <color name="movie_details_a_pg_text_color">#FFFFFF</color>
+    <dimen name="movie_details_a_pg_corner_radius">5dp</dimen>
+    <dimen name="movie_details_a_pg_margin_top">220dp</dimen>
+    <dimen name="movie_details_a_pg_size">24dp</dimen>
+
+    <string name="movie_details_a_name">Avengers: \nEnd Game</string>
+    <dimen name="movie_details_a_name_text_size">40sp</dimen>
+    <color name="movie_details_a_name_text_color">#C4C4C4</color>
+    <color name="movie_details_a_name_shadow_color">#80000000</color>
+    <dimen name="movie_details_a_name_line_height">40dp</dimen>
+
+    <string name="movie_details_a_tags">Action, Adventure, Fantasy</string>
+    <dimen name="movie_details_a_tags_text_size">14sp</dimen>
+    <color name="movie_details_a_tags_text_color">#FF3466</color>
+
+    <string name="movie_details_a_reviews">125 reviews</string>
+    <dimen name="movie_details_a_reviews_text_size">14sp</dimen>
+    <color name="movie_details_a_reviews_text_color">#6D6D80</color>
+    <string name="movie_details_a_review_image_content_description" />
+    <color name="movie_details_a_star_icon_set_tint_color">#FF3365</color>
+
+    <string name="movie_details_a_storyline_header">Storyline</string>
+    <dimen name="movie_details_a_storyline_header_text_size">14sp</dimen>
+    <color name="movie_details_a_storyline_header_text_color">#ECECEC</color>
+    <color name="movie_details_a_storyline_header_shadow_color">#80000000</color>
+
+    <string name="movie_details_a_storyline">After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos actions and restore balance to the universe.</string>
+    <dimen name="movie_details_a_storyline_text_size">14sp</dimen>
+    <color name="movie_details_a_storyline_text_color">#C0FFFFFF</color>
+    <dimen name="movie_details_a_storyline_line_spacing_extra">4dp</dimen>
+
+    <string name="movie_details_a_cast_header">Cast</string>
+    <dimen name="movie_details_a_cast_header_text_size">14sp</dimen>
+    <color name="movie_details_a_cast_header_text_color">#C4C4C4</color>
+    <color name="movie_details_a_cast_header_shadow_color">#80000000</color>
+
+    <dimen name="movie_details_a_cast_corner_radius">4dp</dimen>
+
+    <string name="movie_details_a_cast_1_name">Robert Downey Jr.</string>
+    <string name="movie_details_a_cast_2_name">Chris\nEvans</string>
+    <string name="movie_details_a_cast_3_name">Mark\nRuffalo</string>
+    <string name="movie_details_a_cast_4_name">Chris Hemsworth</string>
+
+    <dimen name="movie_details_a_cast_name_text_size">12sp</dimen>
+    <color name="movie_details_a_cast_name_text_color">#D8D8D8</color>
+
+    <color name="movie_details_a_cast_3_shadow_color">#40000000</color>
+</resources>
